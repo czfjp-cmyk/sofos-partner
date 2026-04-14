@@ -1,0 +1,501 @@
+html_content = """<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FZ | China Expert Platform</title>
+  <meta name="description" content="Execution-led China business services and assets & investment management for international clients—plus a culture & creative edge." />
+  <style>
+    :root{
+      --bg: #1e655a;
+      --bg-dark: #123f38;
+      --panel: rgba(255, 255, 255, 0.05);
+      --text: #ffffff;
+      --muted: #c2e0db;
+      --soft: #90c2ba;
+      --line: rgba(255, 255, 255, 0.15);
+      --accent: #E6C875;
+      --shadow: 0 16px 40px rgba(0,0,0,.25);
+      --radius: 18px;
+      --max: 1100px;
+      --pad: clamp(18px, 3vw, 28px);
+      --h1: clamp(34px, 4.2vw, 54px);
+      --h2: clamp(22px, 2.6vw, 30px);
+      --p: 16px;
+      --small: 13px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color:var(--text);
+      background: var(--bg-dark);
+      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg) 100%);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
+    
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px); 
+      background: rgba(18, 63, 56, 0.85);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px var(--pad);
+      max-width:var(--max); margin:0 auto;
+    }
+    .brand{display:flex; align-items:center; gap:12px; min-width:180px; letter-spacing:.2px;}
+    .logo-img { height: 44px; width: auto; }
+    .brand b{font-weight:650}
+    
+    .nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end; font-size:14px; color:var(--muted);}
+    .nav a{padding:8px 10px; border-radius:10px}
+    .nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px; border-radius:14px;
+      border:1px solid rgba(230, 200, 117, 0.4);
+      background:linear-gradient(180deg, rgba(230, 200, 117, 0.15), rgba(230, 200, 117, 0.05));
+      color:var(--text);
+      box-shadow:0 16px 40px rgba(0,0,0,.25);
+      font-weight:600;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.secondary{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      box-shadow:none;
+      font-weight:600;
+      color:var(--text);
+    }
+    
+    .hero{padding:72px 0 26px;}
+    h1{margin:18px 0 12px; font-size:var(--h1); line-height:1.08; letter-spacing:-.6px;}
+    .lead{max-width:860px; font-size:18px; color:var(--muted); margin:0 0 18px;}
+    .hero-ctas{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    
+    .trust{
+      margin-top:26px;
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap:12px;
+    }
+    .chip{
+      padding:14px 14px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--panel);
+      color:var(--muted);
+      box-shadow:0 12px 28px rgba(0,0,0,.18);
+    }
+    .chip b{color:var(--text); font-weight:650; display: block; margin-bottom: 4px;}
+    
+    .section{padding:38px 0;}
+    .section h2{font-size:var(--h2); margin:0 0 10px; letter-spacing:-.2px; color: var(--accent);}
+    .sub{margin:0 0 18px; color:var(--muted); max-width:900px;}
+    .grid{display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:14px;}
+    .card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      padding:18px;
+      min-height: 240px;
+    }
+    .kicker{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:8px;}
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border:1px solid rgba(230, 200, 117, 0.3);
+      border-radius:999px;
+      color: var(--accent);
+      background: rgba(230, 200, 117, 0.1);
+    }
+    .num{
+      font-family:var(--mono);
+      font-size:12px;
+      color:var(--soft);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:6px 10px;
+      background:rgba(255,255,255,.03);
+    }
+    .card h3{margin:0 0 6px; font-size:18px; letter-spacing:-.2px;}
+    .card p{margin:0 0 10px; color:var(--muted); font-size:var(--p)}
+    .list{margin:0; padding-left:18px; color:var(--muted)}
+    .list li{margin:6px 0}
+    
+    .how{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .panel{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .bullets{display:grid; gap:10px; margin-top:10px;}
+    .bullet{
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+    }
+    .bullet b{color:var(--text)}
+    
+    .matrix{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      box-shadow: var(--shadow);
+    }
+    .matrix th, .matrix td{
+      text-align:left;
+      padding:14px 14px;
+      vertical-align:top;
+      border-bottom:1px solid var(--line);
+      border-right:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+    .matrix th{color:var(--text); font-weight:650; background:rgba(255,255,255,.04);}
+    .matrix tr:last-child td{border-bottom:none}
+    .matrix td:last-child, .matrix th:last-child{border-right:none}
+    .matrix .m-title{color:var(--text); font-weight:650;}
+    
+    .cta{
+      margin:38px 0 72px;
+      border:1px solid rgba(230, 200, 117, 0.3);
+      border-radius:calc(var(--radius) + 6px);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      padding:22px;
+    }
+    .cta h2{margin:0 0 8px; color: var(--accent);}
+    .cta p{margin:0 0 14px; color:var(--muted); max-width:920px}
+    
+    footer{
+      padding:26px 0 44px;
+      border-top:1px solid var(--line);
+      color:var(--soft);
+      font-size:13px;
+    }
+    
+    @media (max-width: 980px){
+      .trust{grid-template-columns: repeat(2, minmax(0, 1fr));}
+      .grid{grid-template-columns: repeat(2, minmax(0, 1fr));}
+      .how{grid-template-columns: 1fr;}
+    }
+    @media (max-width: 620px){
+      .nav{display:none}
+      .grid{grid-template-columns: 1fr;}
+      .hero{padding-top:54px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <img src="a6cf61f0-35cc-421a-86d1-ffa762a8d009.png" alt="福 Logo" class="logo-img">
+        <div>
+          <div><b>FZ</b> China Expert Platform</div>
+          <div style="font-size:12px;color:var(--soft); margin-top:1px;">Execution-led • Integrated • Human</div>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#how">How we work</a>
+        <a href="#matrix">Service matrix</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="contact.html">Book a China Strategy Call →</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <h1>Your China Expert—Built for Execution</h1>
+        <p class="lead">
+          China is opportunity-rich and operationally complex. Success depends on implementation:
+          regulatory interpretation, stakeholder alignment, and the ability to move projects from plan to reality.
+          We support international clients across market entry, compliant operations, and China-related investment—
+          and we stay accountable until results are delivered.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn" href="#services">Explore Services</a>
+          <a class="btn secondary" href="#contact">Talk to a Specialist</a>
+        </div>
+
+        <div class="trust" role="list" aria-label="Key differentiators">
+          <div class="chip" role="listitem"><b>Business-first</b>Start from your objective, not a service menu.</div>
+          <div class="chip" role="listitem"><b>Execution-led</b>Advice + delivery through coordinated teams.</div>
+          <div class="chip" role="listitem"><b>Government network</b>Structured engagement where approvals and timelines matter.</div>
+          <div class="chip" role="listitem"><b>Culture & creative</b>Because serious business can still be enjoyable.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="wrap">
+        <h2>Services</h2>
+        <p class="sub">
+          A single platform spanning government support, financing & tax, legal, assets & investment management, corporate services,
+          and culture & creative—delivered with one accountable team.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="kicker">
+              <span class="num">01</span>
+              <span class="tag">Government Support</span>
+            </div>
+            <h3>Government Support and Network</h3>
+            <p>In an administration-driven economy, the right local interface can materially shape speed, certainty, and operability.</p>
+            <ul class="list">
+              <li>Project landing orientation and local pathway design</li>
+              <li>Project-specific incentives and policy packages</li>
+              <li>Mitigating local protectionism and cross-region barriers</li>
+              <li>Industrial policy engagement and constructive advocacy</li>
+              <li>IP enforcement facilitation; compliance/inspection support</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="kicker">
+              <span class="num">02</span>
+              <span class="tag">Financing & Tax</span>
+            </div>
+            <h3>Financing and Tax</h3>
+            <p>Operational reliability plus decision-grade advisory—so your China operation stays compliant, audit-ready, and optimized.</p>
+            <ul class="list">
+              <li>Bookkeeping and statutory accounting</li>
+              <li>Tax registrations, filings, and ongoing compliance</li>
+              <li>Domestic & cross-border tax advisory and planning</li>
+              <li>Tax risk management, controversy and dispute support</li>
+              <li>Financing readiness and documentation support</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="kicker">
+              <span class="num">03</span>
+              <span class="tag">Legal</span>
+            </div>
+            <h3>Legal Advisory</h3>
+            <p>
+              Practical, transaction-ready counsel—backed by senior practitioners with decades of experience serving international business,
+              and strong standing in arbitration and litigation circles.
+            </p>
+            <ul class="list">
+              <li>Corporate & commercial advisory; governance support</li>
+              <li>Cross-border investment and transaction execution</li>
+              <li>China-ready contracting and regulatory positioning</li>
+              <li>Dispute strategy, arbitration and litigation support</li>
+              <li>IP legal support, including enforcement pathways</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="kicker">
+              <span class="num">04</span>
+              <span class="tag">Regulated</span>
+            </div>
+            <h3>Assets and Investment Management</h3>
+            <p>Regulated capability across private and public markets—supporting clients investing into China or managing China exposure.</p>
+            <ul class="list">
+              <li>PE/VC capability (licensed)</li>
+              <li>Capital markets asset management (listed securities and related products)</li>
+              <li>Investment governance and reporting support</li>
+              <li>Structuring and execution coordination</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="kicker">
+              <span class="num">05</span>
+              <span class="tag">Entity Lifecycle</span>
+            </div>
+            <h3>Corporate Services</h3>
+            <p>Entity lifecycle support from incorporation to ongoing governance—delivered with one accountable team.</p>
+            <ul class="list">
+              <li>Incorporation and entity structuring</li>
+              <li>Company secretarial and governance support</li>
+              <li>Statutory maintenance and corporate filings</li>
+              <li>Operational setup aligned with local requirements</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="kicker">
+              <span class="num">06</span>
+              <span class="tag">Culture & Creative</span>
+            </div>
+            <h3>Culture & Creative Module</h3>
+            <p>Most firms stop at compliance and transactions. We also help clients bring their China presence to life—so business stays human.</p>
+            <ul class="list">
+              <li>Drama and live performance production</li>
+              <li>Short film and creative studio</li>
+              <li>Corporate storytelling and content production</li>
+              <li>Cultural initiatives for China market development</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="wrap">
+        <h2>How We Work</h2>
+        <p class="sub">
+          Large firms often describe their value as “integrated” and “multi-disciplinary.” We agree—while adding the commitment clients value most:
+          <b>ownership of outcomes</b>.
+        </p>
+
+        <div class="how">
+          <div class="panel">
+            <h3 style="margin:0 0 6px;">Execution-led delivery, end to end</h3>
+            <p style="margin:0;color:var(--muted);">
+              We begin with your objective and operating reality, then coordinate the right specialists across government support, financing & tax, legal,
+              corporate services, and investment. The result is fewer handoffs, clearer accountability, and consistent delivery.
+            </p>
+            <div class="bullets">
+              <div class="bullet"><b>Business-first:</b> Your objective sets the workplan—not internal service silos.</div>
+              <div class="bullet"><b>Execution-led:</b> Coordinated teams deliver, not just advise.</div>
+              <div class="bullet"><b>Local leverage:</b> On-the-ground networks and government-facing experience when timelines and approvals matter.</div>
+              <div class="bullet"><b>One accountable partner:</b> Fewer handoffs, clearer control across workstreams.</div>
+            </div>
+          </div>
+
+          <div class="panel" style="background:linear-gradient(180deg, rgba(230, 200, 117, 0.08), rgba(255,255,255,.02)); border-color:rgba(230, 200, 117, 0.22);">
+            <h3 style="margin:0 0 6px;">What you can expect</h3>
+            <ul class="list" style="margin:0; color:rgba(233,238,246,.88);">
+              <li>Clear scope, timeline, and owner per workstream</li>
+              <li>Practical deliverables aligned with local enforcement</li>
+              <li>Documentation discipline and compliance-first execution</li>
+              <li>Escalation pathways when issues become time-sensitive</li>
+              <li>A human touch—because business should still be enjoyable</li>
+            </ul>
+            <div style="margin-top:14px;">
+              <a class="btn secondary" href="#matrix">See the Service Matrix</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="matrix">
+      <div class="wrap">
+        <h2>Service Matrix</h2>
+        <p class="sub">A clean overview of what we deliver, what clients typically need, and the outcomes we drive.</p>
+
+        <div style="overflow:auto;">
+          <table class="matrix" aria-label="Service matrix">
+            <thead>
+              <tr>
+                <th style="min-width:220px;">Module</th>
+                <th style="min-width:280px;">What we deliver</th>
+                <th style="min-width:260px;">Typical client needs</th>
+                <th style="min-width:260px;">Example outcomes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="m-title">1. Government Support and Network</td>
+                <td>Project landing; incentives strategy and application support; mitigation of cross-region friction; industrial policy engagement; IP enforcement facilitation; compliance/inspection/investigation support.</td>
+                <td>Entering a new city/industry; securing incentives; resolving administrative delays; managing inconsistent local enforcement; handling inspections; IP enforcement.</td>
+                <td>Faster project landing; compliant incentive capture; reduced operational friction; clearer stakeholder alignment; controlled inspection response; improved IP follow-through.</td>
+              </tr>
+              <tr>
+                <td class="m-title">2. Financing and Tax</td>
+                <td>Bookkeeping; statutory accounts; tax registrations and filings; tax planning; tax risk management; dispute support; financing readiness support.</td>
+                <td>Reliable compliance; audit-ready finance function; cross-border structuring; responding to tax queries; preparing for financing or counterparties.</td>
+                <td>Stable close and filings; reduced tax risk; clearer cross-border position; stronger documentation; improved readiness for lenders/partners.</td>
+              </tr>
+              <tr>
+                <td class="m-title">3. Legal Advisory</td>
+                <td>Corporate/commercial counsel; contracting; governance; transaction support; dispute strategy; arbitration/litigation support; IP legal support.</td>
+                <td>Enforceable contracts; China-ready deals; regulatory certainty; governance hygiene; dispute preparedness for cross-border matters.</td>
+                <td>Stronger enforceability; transactions completed with controlled risk; improved dispute readiness; credible representation in arbitration/litigation; faster issue resolution.</td>
+              </tr>
+              <tr>
+                <td class="m-title">4. Assets and Investment Management</td>
+                <td>PE/VC execution support (within licensed scope); capital markets asset management (listed securities and related products); investment governance and reporting support.</td>
+                <td>Deploying capital into China; managing China exposure; aligning structure, execution, and ongoing management.</td>
+                <td>Regulated execution pathway; improved investment governance; clearer reporting and portfolio control.</td>
+              </tr>
+              <tr>
+                <td class="m-title">5. Corporate Services</td>
+                <td>Incorporation; company secretarial; statutory maintenance; corporate changes and filings; operational setup support.</td>
+                <td>Setting up China entities; keeping governance compliant; reducing admin burden; managing ongoing statutory requirements.</td>
+                <td>Clean entity setup; timely filings; consistent corporate records; reduced management overhead.</td>
+              </tr>
+              <tr>
+                <td class="m-title">6. Culture & Creative Module</td>
+                <td>Drama/live performance production; short film and creative studio; storytelling and content production.</td>
+                <td>Corporate storytelling; brand localization; cultural initiatives; China market engagement content.</td>
+                <td>High-quality content and experiences tailored for China audiences; stronger stakeholder engagement and brand presence.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="contact">
+      <div class="cta">
+        <h2>Ready to move from plan to delivery in China?</h2>
+        <p>
+          Tell us your objective—market entry, compliance operations, investment, dispute readiness, or a China-facing creative initiative.
+          We’ll respond with a practical pathway, clear ownership, and an execution plan designed for local reality.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn" href="mailto:inquiries@sofoslaw.cn">Email Us</a>
+          <a class="btn secondary" href="#services">Review Services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; gap:16px; justify-content:space-between; flex-wrap:wrap;">
+        <div>
+          <b>FZ</b> — China Expert Platform<br/>
+          <span style="color:var(--soft);">Execution-led business services • Assets & investment management • Culture & creative</span>
+        </div>
+        <div style="text-align:right;">
+          <span style="color:var(--soft);">© <span id="y"></span> FZ. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+"""
+
+with open("fz.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+

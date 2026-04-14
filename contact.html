@@ -7,24 +7,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', system-ui, sans-serif; }
         .tail-container { max-width: 1280px; margin: 0 auto; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
-    <!-- Navigation (same) -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="tail-container px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <span class="text-2xl font-semibold text-blue-900">Sofos</span>
-                <span class="text-xl text-gray-600">& Partners</span>
-            </div>
+            <a href="index.html" class="flex items-center">
+                <span class="text-2xl font-semibold text-blue-900 tracking-tight">Sofos <span class="text-gray-300 font-light px-1">|</span> <span class="text-gray-600 text-xl">&amp; Partners</span></span>
+            </a>
             <div class="flex gap-8 text-sm font-medium">
                 <a href="index.html" class="hover:text-blue-700">Home</a>
-                <a href="about.html" class="hover:text-blue-700">About Us</a>
-                <a href="expertise.html" class="hover:text-blue-700">Expertise</a>
-                <a href="credentials.html" class="hover:text-blue-700">Credentials</a>
+                <a href="index.html#about" class="hover:text-blue-700">About Us</a>
+                <a href="index.html#expertise" class="hover:text-blue-700">Expertise</a>
+                <a href="index.html#credentials" class="hover:text-blue-700">Credentials</a>
                 <a href="contact.html" class="hover:text-blue-700">Contact Us</a>
             </div>
             <a href="contact.html" class="bg-blue-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-950 transition">Speak to a Senior Partner</a>
@@ -49,7 +47,7 @@
                 </div>
                 <div class="flex items-center gap-4">
                     <i class="fa-solid fa-envelope text-2xl text-blue-700"></i>
-                    <div><strong>Email</strong><br>shanghai@sofoslaw.cn</div>
+                    <div><strong>Email</strong><br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="72011a131c151a131b32011d141d011e13055c111c">[email&#160;protected]</a></div>
                 </div>
                 <div class="flex items-center gap-4">
                     <i class="fa-solid fa-clock text-2xl text-blue-700"></i>
@@ -72,14 +70,17 @@
 
     <footer class="bg-gray-900 text-gray-400 py-12 text-sm">
         <div class="tail-container px-6 flex flex-wrap justify-between items-center gap-6">
-            <div>Your trusted advisor for China. Practical, transaction-ready counsel backed by execution.</div>
+            <div class="max-w-md">Your trusted advisor for China. Practical, transaction-ready counsel backed by execution.</div>
             <div class="flex gap-8">
-                <a href="#" class="hover:text-white">shanghai@sofoslaw.cn</a>
+                <a href="#" class="hover:text-white"><span class="__cf_email__" data-cfemail="8af9e2ebe4ede2ebe3caf9e5ece5f9e6ebfda4e9e4">[email&#160;protected]</span></a>
                 <a href="#" class="hover:text-white">+86 18601636266</a>
             </div>
-            <div>© 2026 Sofos & Partners. All rights reserved.</div>
-            <div class="text-xs">Attorney advertising. Prior results do not guarantee a similar outcome.</div>
+            <div class="text-right">
+                <div class="mb-1">© 2026 Sofos & Partners. All rights reserved.</div>
+                <div class="text-xs">Attorney advertising. Prior results do not guarantee a similar outcome.</div>
+                <div class="text-xs mt-2"><del>本所与 <a href="fz2.html" class="underline hover:text-gray-300">FZ China</a> 保持附属及紧密合作关系。</del></div>
+            </div>
         </div>
     </footer>
-</body>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
 </html>
