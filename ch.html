@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>索福思律师事务所   Sofos |& Partners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3em;
+            color: #e0e0e0;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .hero .tagline {
+            font-size: 1.05em;
+            color: #b0b0b0;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 2;
+            text-align: left;
+        }
+
+        .hero .tagline a {
+            color: #7eb8da;
+            text-decoration: none;
+            border-bottom: 1px solid #7eb8da;
+        }
+
+        .hero .tagline a:hover {
+            color: #a8d5e5;
+            border-bottom-color: #a8d5e5;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2em;
+            font-weight: 400;
+            color: #1a1a2e;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #0f3460;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 2;
+        }
+
+        /* Expertise Grid */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .expertise-card {
+            background: #f8f9fa;
+            border-left: 4px solid #0f3460;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .expertise-card .number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #0f3460;
+            opacity: 0.3;
+            margin-bottom: 10px;
+        }
+
+        .expertise-card h3 {
+            font-size: 1.3em;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .expertise-card p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .expertise-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .expertise-card ul li {
+            padding: 5px 0;
+            color: #555;
+            font-size: 0.9em;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .expertise-card ul li::before {
+            content: "•";
+            color: #0f3460;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: #f8f9fa;
+        }
+
+        .quote-box {
+            background: white;
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '"';
+            font-size: 4em;
+            color: #0f3460;
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+
+        .quote-text {
+            font-style: italic;
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+
+        .quote-author {
+            text-align: right;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+
+        .quote-author .title {
+            font-weight: 400;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        /* Partner Cards - Side by Side */
+        .partners-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .partner-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .partner-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .partner-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1a1a2e, #0f3460);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-right: 25px;
+            flex-shrink: 0;
+        }
+
+        .partner-info h3 {
+            font-size: 1.5em;
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+
+        .partner-info .role {
+            color: #0f3460;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+
+        .partner-bio {
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .partner-expertise {
+            background: #f0f4f8;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .partner-expertise h4 {
+            color: #1a1a2e;
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .partner-expertise ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .partner-expertise ul li {
+            padding: 5px 0;
+            color: #555;
+            font-size: 0.9em;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .partner-expertise ul li::before {
+            content: "▸";
+            color: #0f3460;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Platform Section */
+        .platform-text {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            line-height: 1.9;
+            color: #555;
+        }
+
+        .platform-text strong {
+            color: #1a1a2e;
+        }
+
+        /* Credentials */
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .credential-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 3px solid #0f3460;
+        }
+
+        .credential-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .credential-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        /* Transactions */
+        .transactions-list {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .transactions-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .transactions-list ul li {
+            padding: 18px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            line-height: 1.8;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .transactions-list ul li::before {
+            content: "▪";
+            color: #0f3460;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        .transactions-list ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: #b0b0b0;
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-size: 1.5em;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .footer-tagline {
+            font-size: 1.1em;
+            color: #888;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 2px;
+            background: #0f3460;
+            margin: 30px auto;
+        }
+
+        .footer-legal {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partners-row {
+                grid-template-columns: 1fr;
+            }
+
+            .partner-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .partner-avatar {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>索福思律师事务所</h1>
+            <p class="subtitle">Sofos |& Partners，值得您信赖</p>
+            <p class="tagline">索福思是由两位资深合伙人基于共同的理念，在对当下商业和技术演进路径以及法律行业现状进行了长达半年的深度思考和反复探讨后，通过高效的落地实施设立的一家新型的律所。两位资深合伙人均为"二创"，一位参与开创了欧洲头部律所二十多年的在华辉煌，另外一位也亲自主导了另外一家新时代内资律所的创立。基于"做一家不太一样的律所"这个理念，索福思作为一家专业精品律师事务所，将把国际律所的严谨标准与战略视野，与本土精品所的敏捷性和深厚本地资源密切整合，为国内外客户创造不一样的商业价值。<br><br>我们始终相信，法律服务的核心是"人"的交流——与其依赖互联网的碎片信息，不如亲临现场，与我们面对面沟通需求、厘清细节。请点击<a href="location.html">这里</a>查看我们的所在，我们期待您线下光临指导交流。我们的官方信息可以查询<a href="https://credit.lawyers.org.cn/lawfirm.jsp?id=6d48422a7e3e4f1a902b8f23797bc4cd" target="_blank">上海市律协</a>网站。</p>
+        </div>
+    </section>
+
+    <!-- Core Expertise -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">核心专长</h2>
+            <p class="section-intro">针对市场独特需求量身定制的全方位法律支持及策略。无论您是新开业务、重组运营、战略并购，还是解决复杂争议，我们的合伙人均会亲自动手处理每一项委托，确保提供务实高效的解决方案。</p>
+
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="number">01</div>
+                    <h3>外商投资</h3>
+                    <p>设计并交付适当的市场进入策略和法律架构。</p>
+                    <ul>
+                        <li>外资设立</li>
+                        <li>合资谈判</li>
+                        <li>VIE架构</li>
+                        <li>监管审批</li>
+                    </ul>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="number">02</div>
+                    <h3>跨境并购</h3>
+                    <p>为“中资出海”提供战略咨询。</p>
+                    <ul>
+                        <li>尽职调查</li>
+                        <li>架构设计</li>
+                        <li>监管协调</li>
+                        <li>投后整合</li>
+                    </ul>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="number">03</div>
+                    <h3>贸易与海关</h3>
+                    <p>进出口管制合规及跨境贸易支持。</p>
+                    <ul>
+                        <li>进出口许可</li>
+                        <li>关税分类</li>
+                        <li>自贸区策略</li>
+                        <li>贸易救济</li>
+                    </ul>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="number">04</div>
+                    <h3>劳动与人力资源</h3>
+                    <p>针对中国人力市场现状量身定制的综合性支持。</p>
+                    <ul>
+                        <li>合同架构</li>
+                        <li>社保合规</li>
+                        <li>人力重组</li>
+                        <li>争议解决</li>
+                    </ul>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="number">05</div>
+                    <h3>知识产权</h3>
+                    <p>在中国大陆、香港及台湾保护和运营您的知识产权。</p>
+                    <ul>
+                        <li>知产创设</li>
+                        <li>入表评估</li>
+                        <li>维权执行</li>
+                        <li>许可授权</li>
+                    </ul>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="number">06</div>
+                    <h3>监管与合规</h3>
+                    <p>在不断演变的监管环境中保持合规。</p>
+                    <ul>
+                        <li>数据隐私和入表</li>
+                        <li>网络安全和AI</li>
+                        <li>反腐败</li>
+                        <li>反欺诈</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team-section">
+        <div class="container">
+            <h2 class="section-title">我们的团队</h2>
+            <p class="section-intro">创始合伙人与专业团队——通过务实、具有前瞻性的专业服务，连接国际商业与中国。</p>
+
+            <!-- Side by Side Quotes -->
+            <div class="partners-row">
+                <div class="quote-box">
+                    <p class="quote-text">在索福思律师事务所，我们很荣幸能够领导一支充满活力的年轻团队，该团队将深厚的本地洞察与全球标准相结合。我们在争议解决与执行、跨境投资、投资管理、合规与调查，以及资本市场与投资经验方面的差异化优势，使我们能够提供推动真实商业成功的战略解决方案。我特别自豪的是我们在欧洲及国内商圈中的网络与影响力，我们利用这些资源为客户创造持久价值。</p>
+                    <div class="quote-author">
+                        陈振福 博士（Dr. Michael Tan）<br>
+                        <span class="title">创始合伙人</span>
+                    </div>
+                </div>
+
+                <div class="quote-box">
+                    <p class="quote-text">凭借丰富的民事和刑事诉讼经验——我为每位客户带来强有力的落地执行和全盘思维。与陈博士及我们优秀的同事们一起，我们以朝气蓬勃的态度和细致入微的精准度驾驭复杂的监管环境，确实维护客户利益和业务增长。</p>
+                    <div class="quote-author">
+                        高鹏程 <br>
+                        <span class="title">创始合伙人</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side by Side Partner Cards -->
+            <div class="partners-row">
+                <!-- Michael Tan -->
+                <div class="partner-card">
+                    <div class="partner-header">
+                        <div class="partner-avatar">MT</div>
+                        <div class="partner-info">
+                            <h3>陈振福 博士</h3>
+                            <p class="role">创始合伙人</p>
+                        </div>
+                    </div>
+                    <p class="partner-bio">陈博士拥有25年以上从业经验，为诸多跨国企业在华投资方面提供包括并购重组、日常运维等全方位的法律解决方案及支持。同时，在帮助中资企业“走出去”方面也拥有丰富的经验。陈博士在新技术行业的相关领域（例如AI、数据和智慧制造）方面有着丰富的商业及实操经验，他曾任欧盟商会法律与竞争工作组主席及商务部下属的中国世界贸易组织研究会理事，并在多个国际仲裁中心担任仲裁员。借助其广泛的商业人脉，陈博士不仅为客户提供专业的法律支持，同时也为客户的业务增长提供差异化的助力。</p>
+                    <div class="partner-expertise">
+                        <h4>专业领域</h4>
+                        <ul>
+                            <li>跨境投资</li>
+                            <li>合规、调查与数据隐私（CIPP/E认证）</li>
+                            <li>私募股权</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Paul Gao -->
+                <div class="partner-card">
+                    <div class="partner-header">
+                        <div class="partner-avatar">PG</div>
+                        <div class="partner-info">
+                            <h3>高鹏程</h3>
+                            <p class="role">创始合伙人</p>
+                        </div>
+                    </div>
+                    <p class="partner-bio">高律师在诉讼领域拥有多年实操经验和良好口碑。执业以来，他独立承办了数百起民事、商事及刑事案件，包括诈骗、职务侵占、危险驾驶及复杂合同纠纷。作为创始合伙人，他专注于争议解决、风险防范与执行，以务实接地气的方式为客户提供高效有力的保驾护航，深得客户和团队成员的信赖。</p>
+                    <div class="partner-expertise">
+                        <h4>专业领域</h4>
+                        <ul>
+                            <li>争议解决与执行</li>
+                            <li>刑事辩护及经济犯罪案件</li>
+                            <li>企业咨询</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unified Platform -->
+            <h3 style="text-align: center; margin: 50px 0 30px; color: #1a1a2e; font-weight: 400;">我们的一体化团队</h3>
+            <div class="platform-text">
+                <p>我们拥有一个精简、高效的专业团队，以精准接地气的解决方案，为客户保驾护航。团队成员各有所长，近期业务涵盖股权投融资、交易架构设计、员工持股计划、金融争议、区块链、合规调查等各个领域。团队整合多元背景，以务实高效的方式为客户提供专业支持。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">资质与认可</h2>
+            <p class="section-intro">客户信赖索福思律师事务所的理由</p>
+
+            <div class="credentials-grid">
+                <div class="credential-card">
+                    <h3>国际律所品控</h3>
+                    <p>我们的资深合伙人在创立索福思之前曾在泰乐信（Taylor Wessing）、高伟绅（Clifford Chance）、金杜（King & Wood Mallesons）等国际大所历练并参与创业。</p>
+                </div>
+
+                <div class="credential-card">
+                    <h3>行业认可</h3>
+                    <p>因在境外投资及跨境交易领域的工作，持续获得钱伯斯亚太（Chambers Asia-Pacific）及法律500强（Legal 500）排名认可。</p>
+                </div>
+
+                <div class="credential-card">
+                    <h3>本土实地存在</h3>
+                    <p>与FZ集团及其他生态盟友紧密合作，我们提供大中华区的本地专业支持。</p>
+                </div>
+
+                <div class="credential-card">
+                    <h3>真知灼见</h3>
+                    <p>我们的律师定期分享其专业思考和洞见，时常在相关专业论坛和会议上与行业互动。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Representative Transactions -->
+    <section class="section team-section">
+        <div class="container">
+            <h2 class="section-title">代表性交易</h2>
+
+            <div class="transactions-list">
+                <ul>
+                    <li>为领先的欧洲汽车整车制造商及主要汽车零部件供应商，就大中华区汽车供应链中的复杂合资组建、股权重组及并购后整合提供咨询（2022–2025年）。</li>
+                    <li>支持主要机场运营商获得监管审批、特许经营协议及跨境基础设施投资项目。</li>
+                    <li>引导生命科学市场领军企业完成战略并购、技术许可及外商投资架构设计。</li>
+                    <li>处理高风险的争议解决及判决执行，包括几十起涉及经济犯罪及诈骗的刑事案件辩护，成功为客户赢得有利结果。</li>
+                    <li>支持企业和机构完成投融资，同时提供持续合规及内部调查支持。</li>
+                    <li>为大型国际客户提供全方位的综合法律咨询及策略咨询。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">索福思律师事务所  Sofos |& Partners</div>
+            <p class="footer-tagline">您值得信赖的伙伴，为您提供独一无二的专业体验。</p>
+            <div class="footer-divider"></div>
+            <p class="footer-legal">© 2026 未经 索福思律师事务所（Sofos |& Partners）可不得抓取和转载。<br></p>
+        </div>
+    </footer>
+
+</body>
+</html>
